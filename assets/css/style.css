@@ -14,8 +14,8 @@ h1 {
 #main-page {
   height: 100vh;
   width: 100vw;
-  background-color: #2b2d42;
-  color: #f7f7f9;
+  background-color: #272727;
+  color: #dfdfdf;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,13 +40,13 @@ h1 {
 
 #game-rules p {
   font-weight: 300;
-  font-size: 150%;
+  font-size: 130%;
   margin-bottom: 60px;
 }
 
 #play {
   margin: 0 auto;
-  background-color: #e86a92;
+  background-color: #d33f49;
   border: none;
   border-radius: 5px;
   font-size: 230%;
@@ -56,7 +56,7 @@ h1 {
 }
 
 #play:hover {
-  background-color: #ee3f76;
+  background-color: #b1353e;
   cursor: pointer;
 }
 
@@ -74,6 +74,7 @@ h1 {
   justify-content: space-around;
   width: 100%;
   height: 20vh;
+  margin-bottom: 3em;
 }
 
 .player-score,
@@ -81,18 +82,23 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* margin-bottom: 500px; */
+}
+
+.winner {
+  font-size: 50px;
 }
 
 .hands {
   display: flex;
   justify-content: space-around;
-  width: 100%;
+  width: 80%;
   margin: 200px 0;
 }
 
 .player-hand,
 .computer-hand {
-  width: 200px;
+  width: 300px;
 }
 
 .computer-hand {
@@ -100,24 +106,26 @@ h1 {
 }
 
 .options {
-  width: 100%;
+  width: 60%;
   display: flex;
   justify-content: space-evenly;
 }
 
 button {
-  background-color: #e86a92;
+  background-color: #d33f49;
   border: none;
   border-radius: 5px;
   font-size: 130%;
   color: white;
   padding: 0.4em 2em;
+  text-transform: uppercase;
   transition: background-color 0.2s ease;
   font-weight: 300;
 }
 
 button:hover {
-  background-color: #ee3f76;
+  background-color: #b1353e;
+  color: hsl(210, 14, 31);
   cursor: pointer;
 }
 
