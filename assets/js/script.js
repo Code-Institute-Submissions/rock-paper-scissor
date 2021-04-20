@@ -36,7 +36,6 @@ const game = () => {
       option.addEventListener("click", function () {
         const computerNumber = Math.floor(Math.random() * 5);
         const computerChoice = computerOptions[computerNumber];
-        console.log(computerChoice);
         checkHands(this.textContent, computerChoice);
         playerHand.src = `./assets/images/${this.textContent}.png`;
         computerHand.src = `./assets/images/${computerChoice}.png`;
@@ -64,64 +63,59 @@ const game = () => {
         winner.textContent = "Player wins";
         pScore += 1;
         scoreUpdate();
-        return;
       } else {
         winner.textContent = "Computer wins";
         cScore += 1;
         scoreUpdate();
-        return;
       }
     }
+
+    // Check for paper
     if (playerChoice === "paper") {
       if (computerChoice === "scissors" || computerChoice === "lizard") {
         winner.textContent = "Computer wins";
         cScore += 1;
         scoreUpdate();
-        return;
       } else {
         winner.textContent = "Player wins";
         pScore += 1;
         scoreUpdate();
-        return;
       }
     }
+    // Check for scissors
     if (playerChoice === "scissors") {
       if (computerChoice === "paper" || computerChoice === "lizard") {
         winner.textContent = "Player wins";
         pScore += 1;
         scoreUpdate();
-        return;
       } else {
         winner.textContent = "Computer wins";
         cScore += 1;
         scoreUpdate();
-        return;
       }
     }
+    // Check for spock
     if (playerChoice === "spock") {
       if (computerChoice === "scissors" || computerChoice === "rock") {
         winner.textContent = "player wins";
         pScore += 1;
         scoreUpdate();
-        return;
       } else {
         winner.textContent = "Computer wins";
         cScore += 1;
         scoreUpdate();
-        return;
       }
     }
+    // Check for lizard
     if (playerChoice === "lizard") {
       if (computerChoice === "spock" || computerChoice === "paper") {
         winner.textContent = "Player wins";
         pScore += 1;
         scoreUpdate();
-        return;
       } else {
         winner.textContent = "Computer wins";
         cScore += 1;
         scoreUpdate();
-        return;
       }
     }
   };
