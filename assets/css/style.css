@@ -45,13 +45,14 @@ h1 {
 }
 
 #play {
+  width: 250px;
   margin: 0 auto;
   background-color: #d33f49;
   border: none;
   border-radius: 5px;
-  font-size: 230%;
+  font-size: 180%;
   color: white;
-  padding: 0.4em 1em;
+  padding: 1em;
   transition: background-color 0.2s ease;
 }
 
@@ -156,18 +157,20 @@ h1 {
 }
 
 .options {
-  width: 60%;
   display: flex;
+  width: 60%;
   justify-content: space-evenly;
 }
 
 button {
+  width: 200px;
+  display: block;
   background-color: #d33f49;
   border: none;
   border-radius: 5px;
   font-size: 130%;
   color: white;
-  padding: 1em 2em;
+  padding: 1em 1em;
   text-transform: uppercase;
   transition: background-color 0.2s ease;
   font-weight: 300;
@@ -177,6 +180,51 @@ button:hover {
   background-color: #b1353e;
   color: hsl(210, 14, 31);
   cursor: pointer;
+}
+
+.toggle-rules {
+  position: absolute;
+}
+
+.rules-modal {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  background-color: #ececec;
+  border-radius: 10px;
+  opacity: 1;
+}
+
+.rules-modal h3 {
+  margin-bottom: 50px;
+  margin-top: 35px;
+  text-align: center;
+  font-size: 300%;
+}
+
+.rules-modal li {
+  font-size: 120%;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.blur {
+  filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
 }
 
 .hide {

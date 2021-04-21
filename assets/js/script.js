@@ -9,6 +9,9 @@ const game = () => {
   const gameRules = document.getElementById("game-rules");
   const playButton = document.getElementById("play");
   const gameSection = document.getElementById("game");
+  const toggleRules = document.querySelector(".toggle-rules");
+  const modalWindow = document.querySelector(".rules-modal");
+  const modalClose = document.querySelector(".close-modal");
 
   let myScore = 0;
   let compScore = 0;
@@ -22,6 +25,23 @@ const game = () => {
     title.classList.add("hide");
     gameSection.classList.remove("hide");
   }
+
+  // Show rules modal and blur background
+
+  toggleRules.addEventListener("click", function () {
+    modalWindow.classList.remove("hide");
+    toggleRules.classList.add("hide");
+    gameSection.classList.add("blur");
+  });
+
+  // Close rules and unblur background
+
+  modalClose.addEventListener("click", () => {
+    modalWindow.classList.add("hide");
+    toggleRules.classList.remove("hide");
+    gameSection.classList.remove("blur");
+  });
+
   // start match
   function playMatch() {
     const options = document.querySelectorAll(".options button");
@@ -62,6 +82,12 @@ const game = () => {
     const computerScore = document.querySelector(".computer-score p");
     playerScore.textContent = myScore;
     computerScore.textContent = compScore;
+
+    if (myScore === 5) {
+      myScore = 0;
+    } else if (compScore === 5) {
+      compScore = 0;
+    }
   };
 
   const checkHands = (playerChoice, computerChoice) => {
@@ -138,6 +164,7 @@ const game = () => {
     }
   };
   playMatch();
+  resetScore();
 };
 
 game();
