@@ -15,6 +15,7 @@ const game = () => {
   const modalClose = document.querySelector(".close-modal");
   const modalHeader = document.getElementById("modal-header");
   const modalList = document.querySelector(".modal ul");
+  const modalParagraph = document.querySelector(".modal p");
   const playerScore = document.querySelector(".player-score p");
   const computerScore = document.querySelector(".computer-score p");
   const winner = document.querySelector(".winner");
@@ -58,6 +59,7 @@ const game = () => {
     modalList.classList.add("hide");
     playAgain.classList.remove("hide");
     toggleRules.classList.add("hide");
+    modalParagraph.classList.add("hide");
     modalHeader.textContent = `${player} wins!`;
 
     playAgain.addEventListener("click", () => {
@@ -65,6 +67,7 @@ const game = () => {
       winner.textContent = "Pick your hand";
       modalHeader.textContent = "Rules";
       toggleRules.classList.remove("hide");
+      modalParagraph.classList.remove("hide");
       modalList.classList.remove("hide");
       playAgain.classList.add("hide");
     });
