@@ -67,8 +67,10 @@ const game = () => {
   // Reset points and restart game
 
   const resetPoints = function () {
-    playerScore.textContent = 0;
-    computerScore.textContent = 0;
+    playAgain.addEventListener("click", () => {
+      playerScore.textContent = 0;
+      computerScore.textContent = 0;
+    });
   };
 
   // start match
@@ -112,11 +114,9 @@ const game = () => {
     computerScore.textContent = compScore;
 
     if (myScore === 5) {
-      myScore = 0;
       resetPoints();
       displayRematch("Player");
     } else if (compScore === 5) {
-      compScore = 0;
       resetPoints();
       displayRematch("Computer");
     }
