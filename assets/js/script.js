@@ -10,8 +10,8 @@ const game = () => {
   const playButton = document.getElementById("play");
   const gameSection = document.getElementById("game");
 
-  let pScore = 0;
-  let cScore = 0;
+  let myScore = 0;
+  let compScore = 0;
 
   // Hide main page and show game page
 
@@ -25,8 +25,15 @@ const game = () => {
   // start match
   function playMatch() {
     const options = document.querySelectorAll(".options button");
+    const bothHands = document.querySelectorAll(".hands img");
     const playerHand = document.querySelector(".player-hand");
     const computerHand = document.querySelector(".computer-hand");
+
+    bothHands.forEach((hand) => {
+      hand.addEventListener("animationend", function () {
+        this.style.animation = "";
+      });
+    });
 
     // computer options
     const computerOptions = ["rock", "paper", "scissors", "spock", "lizard"];
@@ -36,17 +43,25 @@ const game = () => {
       option.addEventListener("click", function () {
         const computerNumber = Math.floor(Math.random() * 5);
         const computerChoice = computerOptions[computerNumber];
-        checkHands(this.textContent, computerChoice);
-        playerHand.src = `./assets/images/${this.textContent}.png`;
-        computerHand.src = `./assets/images/${computerChoice}.png`;
+        playerHand.src = "./assets/images/rock.png";
+        computerHand.src = "./assets/images/rock.png";
+
+        setTimeout(() => {
+          checkHands(this.textContent, computerChoice);
+          playerHand.src = `./assets/images/${this.textContent}.png`;
+          computerHand.src = `./assets/images/${computerChoice}.png`;
+        }, 2000);
+
+        playerHand.style.animation = "shake-player 2s ease";
+        computerHand.style.animation = "shake-computer 2s ease";
       });
     });
   }
   const scoreUpdate = () => {
     const playerScore = document.querySelector(".player-score p");
     const computerScore = document.querySelector(".computer-score p");
-    playerScore.textContent = pScore;
-    computerScore.textContent = cScore;
+    playerScore.textContent = myScore;
+    computerScore.textContent = compScore;
   };
 
   const checkHands = (playerChoice, computerChoice) => {
@@ -61,11 +76,11 @@ const game = () => {
     if (playerChoice === "rock") {
       if (computerChoice === "scissors" || computerChoice === "lizard") {
         winner.textContent = "Player wins";
-        pScore += 1;
+        myScore += 1;
         scoreUpdate();
       } else {
         winner.textContent = "Computer wins";
-        cScore += 1;
+        compScore += 1;
         scoreUpdate();
       }
     }
@@ -74,47 +89,50 @@ const game = () => {
     if (playerChoice === "paper") {
       if (computerChoice === "scissors" || computerChoice === "lizard") {
         winner.textContent = "Computer wins";
-        cScore += 1;
+        compScore += 1;
         scoreUpdate();
       } else {
         winner.textContent = "Player wins";
-        pScore += 1;
+        myScore += 1;
         scoreUpdate();
       }
     }
+
     // Check for scissors
     if (playerChoice === "scissors") {
       if (computerChoice === "paper" || computerChoice === "lizard") {
         winner.textContent = "Player wins";
-        pScore += 1;
+        myScore += 1;
         scoreUpdate();
       } else {
         winner.textContent = "Computer wins";
-        cScore += 1;
+        compScore += 1;
         scoreUpdate();
       }
     }
+
     // Check for spock
     if (playerChoice === "spock") {
       if (computerChoice === "scissors" || computerChoice === "rock") {
-        winner.textContent = "player wins";
-        pScore += 1;
+        winner.textContent = "Player wins";
+        myScore += 1;
         scoreUpdate();
       } else {
         winner.textContent = "Computer wins";
-        cScore += 1;
+        compScore += 1;
         scoreUpdate();
       }
     }
+
     // Check for lizard
     if (playerChoice === "lizard") {
       if (computerChoice === "spock" || computerChoice === "paper") {
         winner.textContent = "Player wins";
-        pScore += 1;
+        myScore += 1;
         scoreUpdate();
       } else {
         winner.textContent = "Computer wins";
-        cScore += 1;
+        compScore += 1;
         scoreUpdate();
       }
     }
