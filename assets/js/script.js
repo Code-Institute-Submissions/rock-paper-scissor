@@ -18,6 +18,10 @@ const game = () => {
   const playerScore = document.querySelector(".player-score p");
   const computerScore = document.querySelector(".computer-score p");
   const winner = document.querySelector(".winner");
+  const options = document.querySelectorAll(".options button");
+  const bothHands = document.querySelectorAll(".hands img");
+  const playerHand = document.querySelector(".player-hand");
+  const computerHand = document.querySelector(".computer-hand");
 
   let compScore = 0;
   let myScore = 0;
@@ -64,6 +68,16 @@ const game = () => {
     });
   };
 
+  // Reset both hands to rock
+
+  const resetHands = () => {
+    playAgain.addEventListener("click", function () {
+      bothHands.forEach((hand) => {
+        hand.src = "./assets/images/rock.png";
+      });
+    });
+  };
+
   // Reset points and restart game
 
   const resetPoints = function () {
@@ -75,11 +89,6 @@ const game = () => {
 
   // start match
   function playMatch() {
-    const options = document.querySelectorAll(".options button");
-    const bothHands = document.querySelectorAll(".hands img");
-    const playerHand = document.querySelector(".player-hand");
-    const computerHand = document.querySelector(".computer-hand");
-
     bothHands.forEach((hand) => {
       hand.addEventListener("animationend", function () {
         this.style.animation = "";
@@ -116,9 +125,11 @@ const game = () => {
     if (myScore === 5) {
       resetPoints();
       displayRematch("Player");
+      resetHands();
     } else if (compScore === 5) {
       resetPoints();
       displayRematch("Computer");
+      resetHands();
     }
   };
 
