@@ -8,13 +8,19 @@ const game = () => {
   const title = document.getElementById("title");
   const gameRules = document.getElementById("game-rules");
   const playButton = document.getElementById("play");
+  const playAgain = document.querySelector(".play-again");
   const gameSection = document.getElementById("game");
   const toggleRules = document.querySelector(".toggle-rules");
   const modalWindow = document.querySelector(".rules-modal");
   const modalClose = document.querySelector(".close-modal");
+  const modalHeader = document.getElementById("modal-header");
+  const modalList = document.querySelector(".modal ul");
+  const playerScore = document.querySelector(".player-score p");
+  const computerScore = document.querySelector(".computer-score p");
+  const winner = document.querySelector(".winner");
 
-  let myScore = 0;
   let compScore = 0;
+  let myScore = 0;
 
   // Hide main page and show game page
 
@@ -31,16 +37,36 @@ const game = () => {
   toggleRules.addEventListener("click", function () {
     modalWindow.classList.remove("hide");
     toggleRules.classList.add("hide");
-    gameSection.classList.add("blur");
   });
 
-  // Close rules and unblur background
+  // Close rules modal and unblur background
 
   modalClose.addEventListener("click", () => {
     modalWindow.classList.add("hide");
     toggleRules.classList.remove("hide");
-    gameSection.classList.remove("blur");
   });
+
+  // Display play again button and modal
+
+  const displayRematch = function (player) {
+    modalWindow.classList.remove("hide");
+    modalList.classList.add("hide");
+    modalHeader.textContent = "Computer wins!";
+    playAgain.classList.remove("hide");
+
+    playAgain.addEventListener("click", () => {
+      modalWindow.classList.add("hide");
+      winner.textContent = "Pick your hand";
+      modalHeader.textContent = `${player} wins!`;
+    });
+  };
+
+  // Reset points and restart game
+
+  const resetPoints = function () {
+    playerScore.textContent = 0;
+    computerScore.textContent = 0;
+  };
 
   // start match
   function playMatch() {
@@ -77,21 +103,37 @@ const game = () => {
       });
     });
   }
+
   const scoreUpdate = () => {
-    const playerScore = document.querySelector(".player-score p");
-    const computerScore = document.querySelector(".computer-score p");
     playerScore.textContent = myScore;
     computerScore.textContent = compScore;
 
     if (myScore === 5) {
       myScore = 0;
+
+      playAgain.addEventListener("click", function () {
+        modalWindow.classList.add("hide");
+        winner.textContent = "Pick your hand";
+        resetPoints();
+        displayRematch("Player");
+      });
     } else if (compScore === 5) {
       compScore = 0;
+      modalWindow.classList.remove("hide");
+      modalList.classList.add("hide");
+      modalHeader.textContent = "Computer wins!";
+      playAgain.classList.remove("hide");
+
+      playAgain.addEventListener("click", function () {
+        modalWindow.classList.add("hide");
+        winner.textContent = "Pick your hand";
+        resetPoints();
+        displayRematch("Computer");
+      });
     }
   };
 
   const checkHands = (playerChoice, computerChoice) => {
-    const winner = document.querySelector(".winner");
     // check for a draw
     if (playerChoice === computerChoice) {
       winner.textContent = "It's a draw!";
@@ -164,7 +206,5 @@ const game = () => {
     }
   };
   playMatch();
-  resetScore();
 };
-
 game();
