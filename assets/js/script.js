@@ -25,6 +25,7 @@ const game = () => {
   // Hide main page and show game page
 
   playButton.addEventListener("click", startGame);
+
   function startGame() {
     playButton.classList.add("hide");
     gameRules.classList.add("hide");
@@ -51,13 +52,15 @@ const game = () => {
   const displayRematch = function (player) {
     modalWindow.classList.remove("hide");
     modalList.classList.add("hide");
-    modalHeader.textContent = "Computer wins!";
     playAgain.classList.remove("hide");
+    modalHeader.textContent = `${player} wins!`;
 
     playAgain.addEventListener("click", () => {
       modalWindow.classList.add("hide");
       winner.textContent = "Pick your hand";
-      modalHeader.textContent = `${player} wins!`;
+      modalHeader.textContent = "Rules";
+      modalList.classList.remove("hide");
+      playAgain.classList.add("hide");
     });
   };
 
@@ -110,26 +113,12 @@ const game = () => {
 
     if (myScore === 5) {
       myScore = 0;
-
-      playAgain.addEventListener("click", function () {
-        modalWindow.classList.add("hide");
-        winner.textContent = "Pick your hand";
-        resetPoints();
-        displayRematch("Player");
-      });
+      resetPoints();
+      displayRematch("Player");
     } else if (compScore === 5) {
       compScore = 0;
-      modalWindow.classList.remove("hide");
-      modalList.classList.add("hide");
-      modalHeader.textContent = "Computer wins!";
-      playAgain.classList.remove("hide");
-
-      playAgain.addEventListener("click", function () {
-        modalWindow.classList.add("hide");
-        winner.textContent = "Pick your hand";
-        resetPoints();
-        displayRematch("Computer");
-      });
+      resetPoints();
+      displayRematch("Computer");
     }
   };
 

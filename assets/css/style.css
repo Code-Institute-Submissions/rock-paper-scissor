@@ -47,7 +47,7 @@ h1 {
 #play {
   width: 250px;
   margin: 0 auto;
-  background-color: #d33f49;
+  background-color: #35b1a9;
   border: none;
   border-radius: 5px;
   font-size: 180%;
@@ -57,7 +57,7 @@ h1 {
 }
 
 #play:hover {
-  background-color: #b1353e;
+  background-color: #2c928b;
   cursor: pointer;
 }
 
@@ -184,6 +184,11 @@ button:hover {
 
 .toggle-rules {
   position: absolute;
+  background-color: #35b1a9;
+}
+
+.toggle-rules:hover {
+  background-color: #2c928b;
 }
 
 .rules-modal {
