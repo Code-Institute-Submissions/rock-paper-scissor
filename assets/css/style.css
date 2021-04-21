@@ -164,7 +164,6 @@ h1 {
 
 button {
   width: 200px;
-  display: block;
   background-color: #d33f49;
   border: none;
   border-radius: 5px;
@@ -197,8 +196,6 @@ button:hover {
   height: 500px;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-  z-index: 2;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -206,6 +203,7 @@ button:hover {
   background-color: #ececec;
   border-radius: 10px;
   opacity: 1;
+  z-index: 2;
 }
 
 .modal {
@@ -241,4 +239,47 @@ button:hover {
 
 .hide {
   display: none;
+}
+
+@media screen and (max-width: 1920px) {
+  .player-hand,
+  .computer-hand {
+    width: 230px;
+  }
+}
+
+@media screen and (max-width: 1786px) {
+  .player-hand,
+  .computer-hand {
+    width: 250px;
+  }
+
+  button {
+    font-size: 110%;
+    width: 150px;
+  }
+
+  .rules-modal {
+    height: 450px;
+    width: 450px;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 1550px) {
+  .player-hand,
+  .computer-hand {
+    width: 200px;
+  }
+
+  .options button {
+    font-size: 110%;
+    width: 145px;
+  }
+
+  .rules-modal {
+    height: 430px;
+    width: 430px;
+    font-size: 0.89rem;
+  }
 }

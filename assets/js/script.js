@@ -57,12 +57,14 @@ const game = () => {
     modalWindow.classList.remove("hide");
     modalList.classList.add("hide");
     playAgain.classList.remove("hide");
+    toggleRules.classList.add("hide");
     modalHeader.textContent = `${player} wins!`;
 
     playAgain.addEventListener("click", () => {
       modalWindow.classList.add("hide");
       winner.textContent = "Pick your hand";
       modalHeader.textContent = "Rules";
+      toggleRules.classList.remove("hide");
       modalList.classList.remove("hide");
       playAgain.classList.add("hide");
     });
