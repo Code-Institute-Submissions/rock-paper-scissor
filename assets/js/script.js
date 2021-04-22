@@ -20,7 +20,7 @@ const game = () => {
   const computerScore = document.querySelector(".computer-score p");
   const winner = document.querySelector(".winner");
   const options = document.querySelectorAll(".options button");
-  const optionsContainer = document.querySelector(".options");
+  const optionsContainer = document.querySelectorAll(".options button");
   const bothHands = document.querySelectorAll(".hands img");
   const playerHand = document.querySelector(".player-hand");
   const computerHand = document.querySelector(".computer-hand");
@@ -39,19 +39,32 @@ const game = () => {
     gameSection.classList.remove("hide");
   }
 
-  // Show rules modal and blur background
+  // Show rules modal
 
   toggleRules.addEventListener("click", function () {
     modalWindow.classList.remove("hide");
     toggleRules.classList.add("hide");
+    modalClose.classList.remove("hide");
   });
 
-  // Close rules modal and unblur background
+  // Close rules modal
 
   modalClose.addEventListener("click", () => {
     modalWindow.classList.add("hide");
     toggleRules.classList.remove("hide");
   });
+
+  const disableOptions = () => {
+    options.forEach((option) => {
+      option.setAttribute("disabled", "disabled");
+    });
+  };
+
+  const enableOptions = () => {
+    options.forEach((option) => {
+      option.removeAttribute("disabled");
+    });
+  };
 
   // Display play again button, modal and reset hands
 
@@ -62,6 +75,8 @@ const game = () => {
     toggleRules.classList.add("hide");
     modalParagraph.classList.add("hide");
     modalHeader.textContent = `${player} wins!`;
+    modalClose.classList.add("hide");
+    // disableItems(options);
 
     playAgain.addEventListener("click", () => {
       modalWindow.classList.add("hide");
@@ -106,7 +121,7 @@ const game = () => {
         const computerChoice = computerOptions[computerNumber];
         playerHand.src = "./assets/images/rock.png";
         computerHand.src = "./assets/images/rock.png";
-        option.setAttribute("disabled", "");
+        disableOptions();
 
         // Execute animation, wait 2000ms then update hands images
         // Credit to Dev Ed on youtube for this snippet)
@@ -115,6 +130,7 @@ const game = () => {
           playerHand.src = `./assets/images/${this.textContent}.png`;
           computerHand.src = `./assets/images/${computerChoice}.png`;
           option.removeAttribute("disabled");
+          enableOptions();
         }, 2000);
 
         playerHand.style.animation = "shake-player 2s ease";

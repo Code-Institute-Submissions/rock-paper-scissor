@@ -28,21 +28,24 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 30%;
+  width: 90%;
   height: 600px;
   padding: 0 2em;
   text-align: center;
 }
 
-#game-rules h2 {
+.game-rules h2 {
   margin-bottom: 1em;
   font-size: 300%;
 }
 
-#game-rules p {
+.game-rules p {
   font-weight: 300;
   font-size: 130%;
   margin-bottom: 60px;
+  width: 40%;
+  margin: 0 auto;
+  margin-bottom: 50px;
 }
 
 /* Play button */
@@ -247,6 +250,10 @@ button:hover {
   text-align: center;
 }
 
+.play-again {
+  width: 50%;
+}
+
 /* Button to toggle the modal off */
 .close-modal {
   position: absolute;
@@ -310,7 +317,7 @@ button:hover {
     font-size: 180%;
   }
 
-  #game-rules h2 {
+  .game-rules h2 {
     margin-bottom: 1em;
     font-size: 200%;
   }
@@ -424,10 +431,14 @@ button:hover {
   .options button {
     font-size: 60%;
   }
+
+  .game-rules p {
+    width: 70%;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  #game-rules {
+  .game-rules {
     width: 90%;
   }
 
@@ -435,18 +446,18 @@ button:hover {
     font-size: 150%;
   }
 
-  #game-rules h2 {
+  .game-rules h2 {
     font-size: 180%;
+  }
+
+  .game-rules p {
+    width: 70%;
   }
 
   .scores {
     position: fixed;
     top: 0;
     margin-top: 5%;
-  }
-
-  .winner {
-    margin-top: 2em;
   }
 
   .toggle-rules {
@@ -469,13 +480,43 @@ button:hover {
   }
 }
 
+@media screen and (max-width: 656px) {
+  .options button {
+    font-size: 90%;
+  }
+
+  h1 {
+    font-size: 140%;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .options button {
+    font-size: 78%;
+  }
+
+  .toggle-rules {
+    font-size: 78%;
+  }
+
+  h1 {
+    font-size: 120%;
+  }
+}
+
+@media screen and (max-width: 488px) {
+  .options button {
+    width: 18%;
+  }
+}
+
 @media screen and (max-width: 414px) {
   h1 {
     font-size: 100%;
   }
 
-  #game-rules h2 {
-    font-size: 100%;
+  .game-rules h2 {
+    font-size: 130%;
   }
 
   .toggle-rules {
@@ -505,12 +546,45 @@ button:hover {
   .options button {
     width: 17%;
     padding: 1em 0;
-    font-size: 80%;
+    font-size: 75%;
   }
 
   .play-again {
     width: 40%;
     padding: 1.5em 0;
     font-size: 100%;
+  }
+
+  .rules-modal {
+    width: 80%;
+  }
+
+  .rules-modal li {
+    font-size: 100%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  h1 {
+    font-size: 95%;
+  }
+
+  .game-rules p {
+    font-size: 90%;
+    width: 90%;
+  }
+  .scores {
+    font-size: 90%;
+  }
+
+  #play {
+    font-size: 100%;
+    width: 40%;
+  }
+
+  .player-hand,
+  .computer-hand {
+    width: 100px;
+    height: 100px;
   }
 }
