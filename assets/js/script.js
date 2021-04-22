@@ -148,7 +148,7 @@ const game = () => {
   };
 
   // This function checks who has the winning hand
-  // (idea taken from Dev ed on youtube, with my own added code)
+  // (Found this logic from Dev ed on youtube, with my own added code)
 
   const checkHands = (playerChoice, computerChoice) => {
     // check for a draw
