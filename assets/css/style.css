@@ -11,6 +11,8 @@ h1 {
   text-transform: uppercase;
 }
 
+/* Games main page when first reaching the site */
+
 #main-page {
   height: 100vh;
   width: 100%;
