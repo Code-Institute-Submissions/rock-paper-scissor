@@ -1,10 +1,8 @@
 "use strict";
 
 // main game container to prevent global variables
-
 const game = () => {
   // main elements
-
   const title = document.getElementById("title");
   const gameRules = document.getElementById("game-rules");
   const playButton = document.getElementById("play");
@@ -25,13 +23,14 @@ const game = () => {
   const playerHand = document.querySelector(".player-hand");
   const computerHand = document.querySelector(".computer-hand");
 
+  // Score counters
   let compScore = 0;
   let myScore = 0;
 
   // Hide main page and show game page
-
   playButton.addEventListener("click", startGame);
 
+  // Hides the initial elements and shows the main game elements
   function startGame() {
     playButton.classList.add("hide");
     gameRules.classList.add("hide");
@@ -40,7 +39,6 @@ const game = () => {
   }
 
   // Show rules modal
-
   toggleRules.addEventListener("click", function () {
     modalWindow.classList.remove("hide");
     toggleRules.classList.add("hide");
@@ -48,25 +46,26 @@ const game = () => {
   });
 
   // Close rules modal
-
   modalClose.addEventListener("click", () => {
     modalWindow.classList.add("hide");
     toggleRules.classList.remove("hide");
   });
 
+  // Disables the options buttons
   const disableOptions = () => {
     options.forEach((option) => {
       option.setAttribute("disabled", "disabled");
     });
   };
 
+  // Enables the options buttons
   const enableOptions = () => {
     options.forEach((option) => {
       option.removeAttribute("disabled");
     });
   };
 
-  // Display play again button, modal and reset hands
+  // Display play again button, modal and reset hands image
 
   const displayRematch = function (player) {
     modalWindow.classList.remove("hide");
@@ -76,7 +75,6 @@ const game = () => {
     modalParagraph.classList.add("hide");
     modalHeader.textContent = `${player} wins!`;
     modalClose.classList.add("hide");
-    // disableItems(options);
 
     playAgain.addEventListener("click", () => {
       modalWindow.classList.add("hide");
@@ -94,7 +92,6 @@ const game = () => {
   };
 
   // Reset points
-
   const resetPoints = function () {
     myScore = 0;
     compScore = 0;
@@ -103,7 +100,7 @@ const game = () => {
     computerScore.textContent = compScore;
   };
 
-  // start match
+  // start match (credit to Dev ed on youtube)
   function playMatch() {
     bothHands.forEach((hand) => {
       hand.addEventListener("animationend", function () {
@@ -111,7 +108,7 @@ const game = () => {
       });
     });
 
-    // computer options ('Credit to Dev Ed on youtube for this snippet)
+    // computer options ('Credit to Dev Ed on youtube for this snippet on line 115 to line 131)
     const computerOptions = ["rock", "paper", "scissors", "spock", "lizard"];
 
     options.forEach((option) => {
@@ -124,7 +121,6 @@ const game = () => {
         disableOptions();
 
         // Execute animation, wait 2000ms then update hands images
-        // Credit to Dev Ed on youtube for this snippet)
         setTimeout(() => {
           checkHands(this.textContent, computerChoice);
           playerHand.src = `./assets/images/${this.textContent}.png`;
@@ -133,12 +129,14 @@ const game = () => {
           enableOptions();
         }, 2000);
 
+        // Adds animation to hands
         playerHand.style.animation = "shake-player 2s ease";
         computerHand.style.animation = "shake-computer 2s ease";
       });
     });
   }
 
+  // Updates score to 0 if score reaches 5
   const scoreUpdate = () => {
     playerScore.textContent = myScore;
     computerScore.textContent = compScore;
@@ -149,6 +147,9 @@ const game = () => {
     }
   };
 
+  // This function checks who has the winning hand
+  // (idea taken from Dev ed on youtube, with my own added code)
+
   const checkHands = (playerChoice, computerChoice) => {
     // check for a draw
     if (playerChoice === computerChoice) {
@@ -156,10 +157,11 @@ const game = () => {
       return;
     }
 
-    // check for rock
+    // check for rock and adds score to winner
     if (playerChoice === "rock") {
       if (computerChoice === "scissors" || computerChoice === "lizard") {
         winner.textContent = "Player wins";
+
         myScore += 1;
         scoreUpdate();
       } else {
@@ -221,6 +223,7 @@ const game = () => {
       }
     }
   };
+
   playMatch();
 };
 game();
