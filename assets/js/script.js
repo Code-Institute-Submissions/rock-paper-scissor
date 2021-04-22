@@ -74,6 +74,7 @@ const game = () => {
     modalParagraph.classList.add("hide");
     modalHeader.textContent = `${player} wins!`;
     modalClose.classList.add("hide");
+    disableOptions();
 
     playAgain.addEventListener("click", () => {
       modalWindow.classList.add("hide");
@@ -86,6 +87,7 @@ const game = () => {
       bothHands.forEach((hand) => {
         hand.src = "./assets/images/rock.png";
       });
+      enableOptions();
       resetPoints();
     });
   };
@@ -124,8 +126,11 @@ const game = () => {
           checkHands(this.textContent, computerChoice);
           playerHand.src = `./assets/images/${this.textContent}.png`;
           computerHand.src = `./assets/images/${computerChoice}.png`;
-          option.removeAttribute("disabled");
-          enableOptions();
+          if (myScore === 5 || compScore === 5) {
+            disableOptions();
+          } else {
+            enableOptions();
+          }
         }, 2000);
 
         // Adds animation to hands
@@ -140,8 +145,10 @@ const game = () => {
     playerScore.textContent = myScore;
     computerScore.textContent = compScore;
     if (myScore === 5) {
+      disableOptions();
       displayRematch("Player");
     } else if (compScore === 5) {
+      disableOptions();
       displayRematch("Computer");
     }
   };
