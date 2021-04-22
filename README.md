@@ -4,7 +4,7 @@ A game based on rock paper scissors, but with a twist.
 
 ## Credits
 
-First of all, I want to give credit where credit is due. Some of the code snippets I have in my JS code has been taken and/or modified from DevEd's channel on youtube.
+First of all, I want to give credit where credit is due. Some of the code snippets I have in my JS code have been taken and/or modified from DevEd's channel on youtube.
 I will proivde a link to the video in this readme file, accompanied with comments in the JS file.
 Besides from that, I used google and stackOverFlow to find out what my code should look like.
 
