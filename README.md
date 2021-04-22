@@ -15,7 +15,11 @@ Thanks Ed!
 
 ## Purpose of this app
 
-To give a fun experience playing rock, paper, scissors, but with some additions.
+* The site’s users want to play an online game that has elements of chance.
+* The site’s goal is to provide a fun experience playing rock, paper, scissors, but with some additions.
+* The game features two additional (but not optional) choices called "Spock" and "Lizard", which makes it a bit harder to win than the usual rules.
+
+
 The game features two additional (but not optional) choices called "Spock" and "Lizard", which makes it a bit harder to win than the usual rules.
 
 ## Development
