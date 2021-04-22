@@ -53,7 +53,7 @@ const game = () => {
     toggleRules.classList.remove("hide");
   });
 
-  // Display play again button and modal
+  // Display play again button, modal and reset hands
 
   const displayRematch = function (player) {
     modalWindow.classList.remove("hide");
@@ -71,26 +71,21 @@ const game = () => {
       modalParagraph.classList.remove("hide");
       modalList.classList.remove("hide");
       playAgain.classList.add("hide");
-    });
-  };
-
-  // Reset both hands to rock
-
-  const resetHands = () => {
-    playAgain.addEventListener("click", function () {
       bothHands.forEach((hand) => {
         hand.src = "./assets/images/rock.png";
       });
+      resetPoints();
     });
   };
 
-  // Reset points and restart game
+  // Reset points
 
   const resetPoints = function () {
-    playAgain.addEventListener("click", () => {
-      playerScore.textContent = 0;
-      computerScore.textContent = 0;
-    });
+    myScore = 0;
+    compScore = 0;
+
+    playerScore.textContent = myScore;
+    computerScore.textContent = compScore;
   };
 
   // start match
@@ -101,7 +96,7 @@ const game = () => {
       });
     });
 
-    // computer options
+    // computer options ('Credit to Dev Ed on youtube for this snippet)
     const computerOptions = ["rock", "paper", "scissors", "spock", "lizard"];
 
     options.forEach((option) => {
@@ -114,6 +109,7 @@ const game = () => {
         option.setAttribute("disabled", "");
 
         // Execute animation, wait 2000ms then update hands images
+        // Credit to Dev Ed on youtube for this snippet)
         setTimeout(() => {
           checkHands(this.textContent, computerChoice);
           playerHand.src = `./assets/images/${this.textContent}.png`;
@@ -130,15 +126,10 @@ const game = () => {
   const scoreUpdate = () => {
     playerScore.textContent = myScore;
     computerScore.textContent = compScore;
-
     if (myScore === 5) {
-      resetPoints();
       displayRematch("Player");
-      resetHands();
     } else if (compScore === 5) {
-      resetPoints();
       displayRematch("Computer");
-      resetHands();
     }
   };
 
