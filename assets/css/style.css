@@ -13,16 +13,17 @@ h1 {
 
 #main-page {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-color: #272727;
   color: #dfdfdf;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
-/* First text of the page containing awelcome text and the game rules */
+/* First text of the page containing a welcome text and the game rules */
 .game-rules {
   display: flex;
   flex-direction: column;
@@ -31,7 +32,6 @@ h1 {
   height: 600px;
   padding: 0 2em;
   text-align: center;
-  /* background-color: rgb(0, 143, 143); */
 }
 
 #game-rules h2 {
@@ -177,7 +177,7 @@ h1 {
 
 /* The sites main button template */
 button {
-  width: 200px;
+  width: 13%;
   background-color: #d33f49;
   border: none;
   border-radius: 5px;
@@ -186,6 +186,7 @@ button {
   padding: 1em 1em;
   text-transform: uppercase;
   transition: background-color 0.2s ease;
+  text-align: center;
   font-weight: 300;
 }
 
@@ -197,6 +198,7 @@ button:hover {
 .toggle-rules {
   position: absolute;
   background-color: #35b1a9;
+  width: 10%;
 }
 
 .toggle-rules:hover {
@@ -258,23 +260,24 @@ button:hover {
   display: none;
 }
 
+/* Media queries */
+
 /* Media query for 1920px */
 @media screen and (max-width: 1920px) {
   .player-hand,
   .computer-hand {
     width: 230px;
   }
+
+  button {
+    font-size: 110%;
+  }
 }
 /* Media query for 1786px */
 @media screen and (max-width: 1786px) {
   .player-hand,
   .computer-hand {
-    width: 250px;
-  }
-
-  button {
-    font-size: 110%;
-    width: 150px;
+    width: 210px;
   }
 
   .rules-modal {
@@ -291,14 +294,223 @@ button:hover {
     width: 200px;
   }
 
-  .options button {
-    font-size: 110%;
-    width: 145px;
+  button {
+    font-size: 100%;
   }
 
   .rules-modal {
     height: 430px;
     width: 430px;
     font-size: 0.89rem;
+  }
+}
+
+@media screen and (max-width: 1536px) {
+  h1 {
+    font-size: 180%;
+  }
+
+  #game-rules h2 {
+    margin-bottom: 1em;
+    font-size: 200%;
+  }
+
+  #play {
+    width: 200px;
+    font-size: 130%;
+  }
+
+  .winner {
+    font-size: 35px;
+    position: absolute;
+    top: 30%;
+  }
+
+  .player-score,
+  .computer-score {
+    font-size: 120%;
+  }
+
+  .hands {
+    margin: 100px 0 20px 0;
+  }
+
+  .player-hand,
+  .computer-hand {
+    width: 170px;
+  }
+
+  .options {
+    margin-top: 50px;
+  }
+
+  button {
+    font-size: 95%;
+    /* width: 135px; */
+  }
+
+  .rules-modal {
+    height: 410px;
+    width: 410px;
+    font-size: 0.84rem;
+  }
+
+  .play-again {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 1420px) {
+  button {
+    font-size: 85%;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .winner {
+    font-size: 35px;
+  }
+
+  .player-score,
+  .computer-score {
+    font-size: 110%;
+  }
+
+  .hands {
+    margin: 100px 0 20px 0;
+  }
+
+  .player-hand,
+  .computer-hand {
+    width: 150px;
+  }
+
+  .options {
+    margin-top: 50px;
+  }
+
+  button {
+    font-size: 90%;
+    /* width: 125px; */
+  }
+
+  .rules-modal {
+    height: 380px;
+    width: 380px;
+    font-size: 0.84rem;
+  }
+
+  .modal h3 {
+    margin-bottom: 20px;
+  }
+  .modal p {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 1210px) {
+  .options button {
+    font-size: 80%;
+  }
+}
+
+@media screen and (max-width: 1170px) {
+  .options button {
+    font-size: 70%;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .options button {
+    font-size: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #game-rules {
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 150%;
+  }
+
+  #game-rules h2 {
+    font-size: 180%;
+  }
+
+  .scores {
+    position: fixed;
+    top: 0;
+    margin-top: 5%;
+  }
+
+  .winner {
+    margin-top: 2em;
+  }
+
+  .toggle-rules {
+    width: 15%;
+    font-size: 100%;
+  }
+
+  .options {
+    position: absolute;
+    top: 85%;
+    width: 100%;
+  }
+  .options button {
+    width: 15%;
+    font-size: 100%;
+  }
+
+  .options button:hover {
+    background-color: #d33f49;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  h1 {
+    font-size: 100%;
+  }
+
+  #game-rules h2 {
+    font-size: 100%;
+  }
+
+  .toggle-rules {
+    width: 25%;
+    font-size: 90%;
+    padding: 0.6em 0;
+  }
+
+  .hands {
+    width: 100%;
+  }
+  .player-hand,
+  .computer-hand {
+    width: 120px;
+    height: 120px;
+  }
+
+  .player-hand {
+    margin-right: 10em;
+  }
+
+  .options {
+    position: fixed;
+    top: 81%;
+  }
+
+  .options button {
+    width: 17%;
+    padding: 1em 0;
+    font-size: 80%;
+  }
+
+  .play-again {
+    width: 40%;
+    padding: 1.5em 0;
+    font-size: 100%;
   }
 }

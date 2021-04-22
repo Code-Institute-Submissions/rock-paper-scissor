@@ -20,6 +20,7 @@ const game = () => {
   const computerScore = document.querySelector(".computer-score p");
   const winner = document.querySelector(".winner");
   const options = document.querySelectorAll(".options button");
+  const optionsContainer = document.querySelector(".options");
   const bothHands = document.querySelectorAll(".hands img");
   const playerHand = document.querySelector(".player-hand");
   const computerHand = document.querySelector(".computer-hand");
@@ -110,11 +111,14 @@ const game = () => {
         const computerChoice = computerOptions[computerNumber];
         playerHand.src = "./assets/images/rock.png";
         computerHand.src = "./assets/images/rock.png";
+        option.setAttribute("disabled", "");
 
+        // Execute animation, wait 2000ms then update hands images
         setTimeout(() => {
           checkHands(this.textContent, computerChoice);
           playerHand.src = `./assets/images/${this.textContent}.png`;
           computerHand.src = `./assets/images/${computerChoice}.png`;
+          option.removeAttribute("disabled");
         }, 2000);
 
         playerHand.style.animation = "shake-player 2s ease";
