@@ -18,7 +18,6 @@ const game = () => {
   const computerScore = document.querySelector(".computer-score p");
   const winner = document.querySelector(".winner");
   const options = document.querySelectorAll(".options button");
-  const optionsContainer = document.querySelectorAll(".options button");
   const bothHands = document.querySelectorAll(".hands img");
   const playerHand = document.querySelector(".player-hand");
   const computerHand = document.querySelector(".computer-hand");
