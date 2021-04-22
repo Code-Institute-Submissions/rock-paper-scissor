@@ -312,6 +312,7 @@ button:hover {
   }
 }
 
+/* Media query for 1536px */
 @media screen and (max-width: 1536px) {
   h1 {
     font-size: 180%;
@@ -353,7 +354,6 @@ button:hover {
 
   button {
     font-size: 95%;
-    /* width: 135px; */
   }
 
   .rules-modal {
@@ -367,12 +367,14 @@ button:hover {
   }
 }
 
+/* Media query for 1420px */
 @media screen and (max-width: 1420px) {
   button {
     font-size: 85%;
   }
 }
 
+/* Media query for 1280px */
 @media screen and (max-width: 1280px) {
   .winner {
     font-size: 35px;
@@ -398,7 +400,6 @@ button:hover {
 
   button {
     font-size: 90%;
-    /* width: 125px; */
   }
 
   .rules-modal {
@@ -415,6 +416,7 @@ button:hover {
   }
 }
 
+/* Media query for 1210px and smaller screens */
 @media screen and (max-width: 1210px) {
   .options button {
     font-size: 80%;
@@ -427,17 +429,8 @@ button:hover {
   }
 }
 
-@media screen and (max-width: 960px) {
-  .options button {
-    font-size: 60%;
-  }
-
-  .game-rules p {
-    width: 70%;
-  }
-}
-
-@media screen and (max-width: 768px) {
+/* Media query for ipad and iPad pro (portrait only) */
+@media screen and (max-width: 1024px) {
   .game-rules {
     width: 90%;
   }
@@ -480,6 +473,7 @@ button:hover {
   }
 }
 
+/* Media query for phone screens */
 @media screen and (max-width: 656px) {
   .options button {
     font-size: 90%;
